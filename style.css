@@ -8,30 +8,37 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
-  background-color: rgb(74, 74, 74);
+  background-color: rgb(141, 130, 130);
 }
 
 header {
-  background-color: black;
+  background-color: rgb(50, 94, 45);
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 main {
-  display: flex;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 100px;
+  grid-template-columns: 100%;
   justify-content: center;
-  align-items: center;
+  align-content: space-between;
 }
 
 .cards {
+  margin: 40px;
+  grid-row: 1 / 2;
   display: flex;
   gap: 50px;
 }
 
 .card {
-  background-color: rgb(35, 96, 153);
+  background-color: rgb(96, 23, 23);
   height: 300px;
   width: 250px;
   border-radius: 10px;
@@ -40,13 +47,114 @@ main {
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   align-items: center;
+  box-shadow: 0px 0px 5px black;
+  border: 2px solid black;
+}
+
+#showDialog {
+  grid-row: 2 / 3;
+  width: 60px;
+  height: 60px;
+  font-size: 3rem;
+  align-self: center;
+  border-radius: 60px;
+  justify-self: end;
+  margin: 40px;
+  border: none;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+}
+
+#showDialog:hover {
+  width: 70px;
+  height: 70px;
+  font-size: 3.3rem;
+  background-color: lightblue;
 }
 
 footer {
-  background-color: black;
+  background-color: rgb(50, 94, 45);
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+dialog {
+  border-radius: 25px;
+  height: fit-content;
+  width: 400px;
+  font-size: 1.5rem;
+  background-color: rgb(189, 189, 189);
+}
+
+#form-display {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+dialog .inputs {
+  display: grid;
+  gap: 20px;
+  justify-items: start;
+  align-items: center;
+}
+
+#form-display h2 {
+  align-self: center;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+#book-title,
+#book-author,
+#book-pages,
+#book-read {
+  box-sizing: border-box;
+  width: 200px;
+  justify-self: center;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
+.form-row label {
+  justify-self: end;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.btns button {
+  font-size: 1.7rem;
+  border-radius: 20px;
+  padding: 8px;
+  border: 1px black solid;
+  cursor: pointer;
+}
+
+#cancel {
+  background-color: red;
+  color: white;
+}
+
+#cancel:hover {
+  background-color: rgb(177, 0, 0);
+}
+
+#confirmBtn {
+  background-color: rgb(1, 181, 1);
+  color: white;
+}
+
+#confirmBtn:hover {
+  background-color: green;
 }

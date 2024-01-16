@@ -11,13 +11,43 @@
       <h1 id="title">Library</h1>
     </header>
     <main>
-        <button>Add Book</button>
-      <div class="cards">   
+      <div class="cards"></div>
+      <button id="showDialog">+</button>
+      <dialog id="dialog">
+        <form>
+          <div id="form-display">
+            <h2>Add a new book</h2>
+
+            <div class="form-row">
+              <label for="book-title">Title:</label>
+              <input type="text" id="book-title" name="book_title" required />
+            </div>
+            <div class="form-row">
+              <label for="book-author">Author:</label>
+              <input type="text" id="book-author" name="book_author" required />
+            </div>
+            <div class="form-row">
+              <label for="book-pages">Pages:</label>
+              <input type="number" id="book-pages" name="book_pages" required />
+            </div>
+            <div class="form-row">
+              <label> Book read?</label>
+              <select id="book-read">
+                <option value="not read" selected>not read</option>
+                <option value="read">read</option>
+              </select>
+            </div>
+            <div class="btns">
+              <button id="cancel">Cancel</button>
+              <button id="confirmBtn" form="dialog">Add Book</button>
+            </div>
+          </div>
+        </form>
+      </dialog>
     </main>
     <footer>
       <div id="footer">Copyright by @DaveG998 Github</div>
     </footer>
-
     <script src="script.js"></script>
   </body>
 </html>
