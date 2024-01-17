@@ -22,27 +22,47 @@ function displayBooks(myLibrary) {
       const newCard = document.createElement("div");
       newCard.classList.add("card");
       const title = document.createElement("div");
-      title.textContent = `Title: ${book.title}`;
+      title.classList.add("book-title");
+      title.textContent = `"${book.title}"`;
       const author = document.createElement("div");
-      author.textContent = `Author: ${book.author}`;
+      author.textContent = book.author;
+      author.classList.add("book-author");
       const pages = document.createElement("div");
-      pages.textContent = `Pages: ${book.pages}`;
-      const read = document.createElement("div");
-      read.textContent = `Read: ${book.read}`;
+      pages.textContent = `${book.pages} pages`;
+      pages.classList.add("book-pages");
       const delBtn = document.createElement("button");
       delBtn.textContent = "Delete";
       delBtn.classList.add("cardDelBtn");
+      const readBtn = document.createElement("button");
+      readBtn.textContent = "not read";
+      readBtn.classList.add("readBtn");
+
+      if (book.read === "read") {
+        readBtn.classList.add("read");
+        readBtn.textContent = "read";
+      }
 
       newCard.appendChild(delBtn);
       newCard.appendChild(title);
       newCard.appendChild(author);
       newCard.appendChild(pages);
-      newCard.appendChild(read);
+      // newCard.appendChild(read);
+      newCard.appendChild(readBtn);
       cards.appendChild(newCard);
 
       delBtn.addEventListener("click", (book) => {
         cards.removeChild(newCard);
         myLibrary = myLibrary.filter((item) => book.date !== item.date);
+      });
+
+      readBtn.addEventListener("click", () => {
+        if (readBtn.classList.contains("read")) {
+          readBtn.textContent = "not read";
+          readBtn.classList.toggle("read");
+        } else {
+          readBtn.classList.toggle("read");
+          readBtn.textContent = "Read";
+        }
       });
     }
   }
