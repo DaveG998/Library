@@ -1,17 +1,58 @@
 const myLibrary = [];
 
-function Book(author, title, pages, read, displayed, date) {
-  this.author = author;
-  this.title = title;
-  this.pages = pages;
-  this.read = read;
-  this.displayed = displayed;
-  this.date = date;
+// function Book(author, title, pages, read, displayed, date) {
+//   this.author = author;
+//   this.title = title;
+//   this.pages = pages;
+//   this.read = read;
+//   this.displayed = displayed;
+//   this.date = date;
+// }
+
+// Book.prototype.addBookToLibrary = function () {
+//   myLibrary.push(this);
+// };
+
+//----------------- BOOK-CLASS -------------------
+class Book {
+  #_author;
+  #_title;
+  #_pages;
+  #_read;
+  #_displayed;
+  #_date;
+  constructor(author, title, pages, read, displayed, date) {
+    this.#_author = author;
+    this.#_title = title;
+    this.#_pages = pages;
+    this.#_read = read;
+    this.#_displayed = displayed;
+    this.#_date = date;
+  }
+  addBookToLibrary() {
+    myLibrary.push(this);
+  }
+  get author() {
+    return this.#_author;
+  }
+  get title() {
+    return this.#_title;
+  }
+  get pages() {
+    return this.#_pages;
+  }
+  get read() {
+    return this.#_read;
+  }
+  get displayed() {
+    return this.#_displayed;
+  }
+  get date() {
+    return this.#_date;
+  }
 }
 
-Book.prototype.addBookToLibrary = function () {
-  myLibrary.push(this);
-};
+//------------------------------------------------
 
 const cards = document.querySelector(".cards");
 
@@ -23,7 +64,7 @@ function displayBooks(myLibrary) {
       newCard.classList.add("card");
       const title = document.createElement("div");
       title.classList.add("book-title");
-      title.textContent = `"${book.title}"`;
+      title.textContent = `"${book._title}"`;
       const author = document.createElement("div");
       author.textContent = book.author;
       author.classList.add("book-author");
@@ -93,7 +134,7 @@ confirmBtn.addEventListener("click", (e) => {
     bookPages.value &&
     bookRead.value
   ) {
-    book = new Book(
+    let book = new Book(
       bookTitle.value,
       bookAuthor.value,
       bookPages.value,
